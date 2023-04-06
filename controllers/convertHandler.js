@@ -5,9 +5,9 @@ function ConvertHandler() {
     //let index = /[a-z]/i.exec(input).index;
     let char = num.match("[a-zA-Z]");
     let index = -1;
-    if (char !== null) index = str.indexOf(char);
+    if (char !== null) index = num.indexOf(char);
 
-    if ((index = -1)) num = input;
+    if (index === -1) num = input;
     else num = input.substring(0, index);
 
     if (num.includes("./")) result = "invalid number";
@@ -18,6 +18,8 @@ function ConvertHandler() {
         if (isNaN(nums[0]) || isNaN(nums[1])) result = "invalid number";
         else result = +nums[0] / +nums[1];
       }
+    } else if (num === "") {
+      result = 1;
     } else {
       if (isNaN(num)) result = "invalid number";
       else result = +num;
