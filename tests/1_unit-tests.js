@@ -37,4 +37,27 @@ suite("Unit Tests", function () {
       "correctly default to a numerical input of 1 when no numerical input is provided"
     );
   });
+
+  test("Testing convertHandler.getUnit", function () {
+    assert.equal(
+      convertHandler.getUnit("3gal"),
+      "gal",
+      "correctly read each valid input unit"
+    );
+    assert.equal(
+      convertHandler.getUnit("3al"),
+      "invalid unit",
+      "correctly return an error for an invalid input unit"
+    );
+    assert.equal(
+      convertHandler.getUnit("3l"),
+      "L",
+      "correctly return l to upperCase L"
+    );
+    assert.equal(
+      convertHandler.getUnit("3GAL"),
+      "gal",
+      "correctly return lowerCase unit"
+    );
+  });
 });

@@ -30,6 +30,21 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     let result;
+    let index = -1;
+    let units = ["gal", "L", "mi", "km", "lbs", "kg"];
+    let char = input.match("[a-zA-Z]");
+    if (char !== null) index = input.indexOf(char);
+
+    if (index === -1) result = "invalid unit";
+    else {
+      result = input.substring(index, input.length);
+      index = units.findIndex(
+        (el) => el.toLowerCase() === result.toLowerCase()
+      );
+      if (index === -1) result = "invalid unit";
+      else if (result === "l") result = "L";
+      else result = result.toLowerCase();
+    }
 
     return result;
   };
