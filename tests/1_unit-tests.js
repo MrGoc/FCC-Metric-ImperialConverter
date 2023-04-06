@@ -48,7 +48,7 @@ suite("Unit Tests", function () {
     assert.equal(convertHandler.getUnit("32dl"), "invalid unit");
     assert.equal(convertHandler.getUnit("113ju"), "invalid unit");
   });
-  /*
+
   test("Correct return unit for each valid input unit", function () {
     let inputUnits = [
       "gal",
@@ -65,21 +65,45 @@ suite("Unit Tests", function () {
       "KG",
     ];
     let correctUnits = [
-      "gal",
-      "gal",
       "L",
       "L",
-      "mi",
-      "mi",
+      "gal",
+      "gal",
       "km",
       "km",
-      "lbs",
-      "lbs",
+      "mi",
+      "mi",
       "kg",
       "kg",
+      "lbs",
+      "lbs",
     ];
     for (let ii = 0; ii < inputUnits.length; ii++)
-      assert.equal(convertHandler.getUnit(inputUnits[ii]), correctUnits[ii]);
+      assert.equal(
+        convertHandler.getReturnUnit(inputUnits[ii]),
+        correctUnits[ii]
+      );
   });
-  */
+
+  test("Validate spelled-out string unit for each valid input unit.", function () {
+    let inputUnits = ["gal", "L", "mi", "km", "lbs", "kg"];
+    let correctUnits = [
+      "gallons",
+      "liters",
+      "miles",
+      "kilometers",
+      "pounds",
+      "kilograms",
+    ];
+    for (let ii = 0; ii < inputUnits.length; ii++)
+      assert.equal(
+        convertHandler.spellOutUnit(inputUnits[ii]),
+        correctUnits[ii]
+      );
+  });
+  /*
+  test("Validate gal to L", function () {
+    assert.equal(convertHandler.convert(3, "gal"), 11.35623);
+  });
+*/
 });

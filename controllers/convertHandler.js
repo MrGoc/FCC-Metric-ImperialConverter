@@ -50,13 +50,33 @@ function ConvertHandler() {
   };
 
   this.getReturnUnit = function (initUnit) {
+    let units = ["gal", "L", "mi", "km", "lbs", "kg"];
+    let retUnits = ["L", "gal", "km", "mi", "kg", "lbs"];
+    let ix = units.findIndex(
+      (el) => el.toLowerCase() === initUnit.toLowerCase()
+    );
     let result;
+    if (ix === -1) result = "invalid unit";
+    else result = retUnits[ix];
 
     return result;
   };
 
   this.spellOutUnit = function (unit) {
+    let spells = [
+      ["gal", "gallons"],
+      ["L", "liters"],
+      ["mi", "miles"],
+      ["km", "kilometers"],
+      ["lbs", "pounds"],
+      ["kg", "kilograms"],
+    ];
+    let ix = spells.findIndex(
+      (el) => el[0].toLowerCase() === unit.toLowerCase()
+    );
     let result;
+    if (ix === -1) result = "invalid unit";
+    else result = spells[ix][1];
 
     return result;
   };
