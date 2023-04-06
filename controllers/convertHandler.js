@@ -72,7 +72,7 @@ function ConvertHandler() {
       ["kg", "kilograms"],
     ];
     let ix = spells.findIndex(
-      (el) => el[0].toLowerCase() === unit.toLowerCase()
+      (el) => el[0].toLowerCase() === initUnit.toLowerCase()
     );
     let result;
     if (ix === -1) result = "invalid unit";

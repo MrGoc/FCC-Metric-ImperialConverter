@@ -101,9 +101,23 @@ suite("Unit Tests", function () {
         correctUnits[ii]
       );
   });
-  /*
+
   test("Validate gal to L", function () {
     assert.equal(convertHandler.convert(3, "gal"), 11.35623);
   });
-*/
+  test("Validate L to gal", function () {
+    assert.equal(convertHandler.convert(378.541, "L"), 100);
+  });
+  test("Validate mi to km", function () {
+    assert.equal(convertHandler.convert(5, "mi"), 8.0467);
+  });
+  test("Validate km to mi", function () {
+    assert.equal(convertHandler.convert(160.934, "km"), 1.60934);
+  });
+  test("Validate lbs to kg", function () {
+    assert.equal(convertHandler.convert(100, "lbs"), 45.3592);
+  });
+  test("Validate kg to lbs", function () {
+    assert.equal(convertHandler.convert(90.7184, "kg"), 200);
+  });
 });
