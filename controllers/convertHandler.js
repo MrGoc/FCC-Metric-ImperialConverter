@@ -42,7 +42,7 @@ function ConvertHandler() {
         (el) => el.toLowerCase() === result.toLowerCase()
       );
       if (index === -1) result = "invalid unit";
-      else if (result === "l") result = "L";
+      else if (result.toLowerCase() === "l") result = "L";
       else result = result.toLowerCase();
     }
 
