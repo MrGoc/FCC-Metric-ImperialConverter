@@ -87,24 +87,27 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     let result;
 
+    const roundAccurately = (number, decimalPlaces) =>
+      Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces);
+
     switch (initUnit.toLowerCase()) {
       case "gal":
-        result = initNum * galToL;
+        result = roundAccurately(initNum * galToL, 5);
         break;
       case "l":
-        result = initNum / galToL;
+        result = roundAccurately(initNum / galToL, 5);
         break;
       case "lbs":
-        result = initNum * lbsToKg;
+        result = roundAccurately(initNum * lbsToKg, 5);
         break;
       case "kg":
-        result = initNum / lbsToKg;
+        result = roundAccurately(initNum / lbsToKg, 5);
         break;
       case "mi":
-        result = initNum * miToKm;
+        result = roundAccurately(initNum * miToKm, 5);
         break;
       case "km":
-        result = initNum / miToKm;
+        result = roundAccurately(initNum / miToKm, 5);
         break;
       default:
         result = "invalid unit";
@@ -114,7 +117,22 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result;
+    let initUnitSpellOut = this.spellOutUnit(initUnit);
+    let returnUnitSpellOut = this.spellOutUnit(returnUnit);
+    let result = {
+      initNum: initNum,
+      initUnit: initUnit,
+      returnNum: returnNum,
+      returnUnit: returnUnit,
+      string:
+        initNum +
+        " " +
+        initUnitSpellOut +
+        " converts to " +
+        returnNum +
+        " " +
+        returnUnitSpellOut,
+    };
 
     return result;
   };
