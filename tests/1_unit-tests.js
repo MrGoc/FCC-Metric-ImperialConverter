@@ -112,7 +112,7 @@ suite("Unit Tests", function () {
     assert.equal(convertHandler.convert(5, "mi"), 8.0467);
   });
   test("Validate km to mi", function () {
-    assert.equal(convertHandler.convert(160.934, "km"), 1.60934);
+    assert.equal(convertHandler.convert(160.934, "km"), 100);
   });
   test("Validate lbs to kg", function () {
     assert.equal(convertHandler.convert(100, "lbs"), 45.3592);
